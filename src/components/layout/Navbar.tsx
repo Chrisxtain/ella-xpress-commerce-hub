@@ -6,11 +6,13 @@ import { Button } from "@/components/ui/button";
 import { categories } from "@/data/products";
 import { useCart } from "@/context/CartContext";
 import { 
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger
-} from "@/components/ui/dropdown-menu";
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
 
 const Navbar = () => {
@@ -30,44 +32,58 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
-            <Link to="/" className="text-sm font-medium text-gray-700 hover:text-brand-red transition-colors">
-              Home
-            </Link>
-            
-            {/* Categories Dropdown */}
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <button className="text-sm font-medium text-gray-700 hover:text-brand-red transition-colors">
+          <NavigationMenu className="hidden lg:flex">
+            <NavigationMenuList>
+              <NavigationMenuItem>
+                <Link to="/" className="text-sm font-medium text-gray-700 hover:text-brand-red transition-colors px-3 py-2">
+                  Home
+                </Link>
+              </NavigationMenuItem>
+              
+              <NavigationMenuItem>
+                <NavigationMenuTrigger className="text-sm font-medium text-gray-700 hover:text-brand-red transition-colors">
                   Categories
-                </button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="center" className="w-56 bg-white">
-                {categories.map((category) => (
-                  <DropdownMenuItem key={category.id} className="cursor-pointer">
-                    <Link 
-                      to={`/category/${category.slug}`} 
-                      className="w-full"
-                    >
-                      {category.name}
-                    </Link>
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
-            
-            <Link to="/blog" className="text-sm font-medium text-gray-700 hover:text-brand-red transition-colors">
-              Blog
-            </Link>
-            
-            <Link to="/about" className="text-sm font-medium text-gray-700 hover:text-brand-red transition-colors">
-              About Us
-            </Link>
-            
-            <Link to="/contact" className="text-sm font-medium text-gray-700 hover:text-brand-red transition-colors">
-              Contact
-            </Link>
-          </nav>
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                    {categories.map((category) => (
+                      <li key={category.id} className="row-span-1">
+                        <NavigationMenuLink asChild>
+                          <Link
+                            to={`/category/${category.slug}`}
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                          >
+                            <div className="text-sm font-medium leading-none">{category.name}</div>
+                            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                              {category.description}
+                            </p>
+                          </Link>
+                        </NavigationMenuLink>
+                      </li>
+                    ))}
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+              
+              <NavigationMenuItem>
+                <Link to="/blog" className="text-sm font-medium text-gray-700 hover:text-brand-red transition-colors px-3 py-2">
+                  Blog
+                </Link>
+              </NavigationMenuItem>
+              
+              <NavigationMenuItem>
+                <Link to="/about" className="text-sm font-medium text-gray-700 hover:text-brand-red transition-colors px-3 py-2">
+                  About Us
+                </Link>
+              </NavigationMenuItem>
+              
+              <NavigationMenuItem>
+                <Link to="/contact" className="text-sm font-medium text-gray-700 hover:text-brand-red transition-colors px-3 py-2">
+                  Contact
+                </Link>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+          </NavigationMenu>
 
           {/* Search and Cart */}
           <div className="flex items-center space-x-4">
