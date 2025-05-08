@@ -162,7 +162,7 @@ export const products: Product[] = [
     price: 18.99,
     category: "Female Hair",
     categorySlug: "female-hair",
-    image: "https://unsplash.com/photos/a-group-of-mannequins-in-a-store-window-yfggDzL626A",
+    image: "https://images.app.goo.gl/K2WAFSHEw82FNhA58",
     description: "Set of 6 premium silk scrunchies that prevent hair breakage and creasing. Perfect for overnight wear or stylish everyday use.",
     rating: 4.9,
     reviewCount: 147,
