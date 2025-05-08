@@ -3,14 +3,12 @@ import Layout from "@/components/layout/Layout";
 import HeroSection from "@/components/home/HeroSection";
 import ProductGrid from "@/components/products/ProductGrid";
 import CategoryCard from "@/components/products/CategoryCard";
-import BlogCard from "@/components/blog/BlogCard";
 import { Button } from "@/components/ui/button";
 import { 
   getFeaturedProducts, 
   getHotProducts, 
   getLimitedProducts,
-  categories,
-  blogPosts
+  categories
 } from "@/data/products";
 import { Link } from "react-router-dom";
 
@@ -73,21 +71,6 @@ const HomePage = () => {
                 className="w-full h-full object-cover object-center"
               />
             </div>
-          </div>
-        </div>
-        
-        {/* Blog Section */}
-        <div className="mb-16">
-          <div className="flex justify-between items-center mb-6">
-            <h2 className="text-2xl font-bold text-brand-navy">From Our Blog</h2>
-            <Link to="/blog" className="text-brand-red hover:text-brand-red/80">
-              View All Posts
-            </Link>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {blogPosts.slice(0, 3).map((post) => (
-              <BlogCard key={post.id} post={post} />
-            ))}
           </div>
         </div>
       </div>

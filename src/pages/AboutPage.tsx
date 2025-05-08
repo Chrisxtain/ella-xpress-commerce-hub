@@ -90,55 +90,6 @@ const AboutPage = () => {
         </div>
       </div>
       
-      {/* Team Section */}
-      <div className="container mx-auto px-4 py-16">
-        <h2 className="text-3xl font-bold text-brand-navy mb-12 text-center">Meet Our Team</h2>
-        <div className="grid md:grid-cols-3 gap-8">
-          <div className="text-center">
-            <div className="mb-4 mx-auto w-40 h-40 rounded-full overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8YmxhY2slMjBmZW1hbGV8ZW58MHx8MHx8fDA%3D"
-                alt="Ella Johnson"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <h3 className="font-bold text-lg">Ella Johnson</h3>
-            <p className="text-brand-red mb-2">Founder & CEO</p>
-            <p className="text-gray-600">
-              With over 15 years in retail, Ella leads our company with passion and vision.
-            </p>
-          </div>
-          <div className="text-center">
-            <div className="mb-4 mx-auto w-40 h-40 rounded-full overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YnVzaW5lc3MlMjBtYW58ZW58MHx8MHx8fDA%3D"
-                alt="Michael Williams"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <h3 className="font-bold text-lg">Michael Williams</h3>
-            <p className="text-brand-red mb-2">Operations Director</p>
-            <p className="text-gray-600">
-              Michael ensures that our supply chain and operations run smoothly.
-            </p>
-          </div>
-          <div className="text-center">
-            <div className="mb-4 mx-auto w-40 h-40 rounded-full overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8d29tYW4lMjBvZmZpY2V8ZW58MHx8MHx8fDA%3D"
-                alt="Sarah Chen"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <h3 className="font-bold text-lg">Sarah Chen</h3>
-            <p className="text-brand-red mb-2">Customer Service Manager</p>
-            <p className="text-gray-600">
-              Sarah leads our award-winning customer service team with a focus on excellence.
-            </p>
-          </div>
-        </div>
-      </div>
-      
       {/* CTA Section */}
       <div className="bg-brand-light py-16">
         <div className="container mx-auto px-4 text-center">

@@ -1,13 +1,8 @@
 
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const slides = [
   {
@@ -31,67 +26,92 @@ const slides = [
 ];
 
 const HeroSection = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
+  };
+  
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
+  };
+  
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 5000);
+    
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <div className="relative overflow-hidden mb-12">
-      <div className="hero-gradient">
-        <div className="container mx-auto px-4 py-16 md:py-24">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="text-white">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-                Welcome to <span className="text-brand-red">Ella Xpress</span>
-              </h1>
-              <p className="text-xl opacity-90 mb-8">
-                Discover quality products across fashion, home, travel and more. 
-                Fast shipping and excellent customer service guaranteed.
-              </p>
-              <div className="flex flex-wrap gap-4">
+    <div className="relative w-full h-[600px] overflow-hidden">
+      {/* Slides */}
+      <div className="absolute inset-0">
+        {slides.map((slide, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+              currentSlide === index ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            <div className="absolute inset-0 bg-black/40 z-10" />
+            <img
+              src={slide.image}
+              alt={slide.title}
+              className="w-full h-full object-cover object-center"
+            />
+            
+            {/* Content overlay */}
+            <div className="absolute inset-0 z-20 flex items-center justify-center">
+              <div className="text-center text-white max-w-3xl px-4">
+                <h1 className="text-4xl md:text-6xl font-bold mb-4 animate-fade-in">
+                  {slide.title}
+                </h1>
+                <p className="text-xl md:text-2xl mb-8 animate-fade-in">
+                  {slide.description}
+                </p>
                 <Button 
                   size="lg" 
-                  className="bg-brand-red hover:bg-brand-red/90"
+                  className="bg-brand-red hover:bg-brand-red/90 animate-fade-in"
                 >
-                  <Link to="/category/female-hair">Shop Hair Products</Link>
-                </Button>
-                <Button 
-                  size="lg"
-                  variant="outline" 
-                  className="bg-transparent border-white text-white hover:bg-white hover:text-brand-navy"
-                >
-                  <Link to="/category/fashion">Explore Fashion</Link>
+                  <Link to={slide.link}>Shop Now</Link>
                 </Button>
               </div>
             </div>
-            <div className="hidden lg:block">
-              <Carousel className="w-full max-w-[600px] mx-auto">
-                <CarouselContent>
-                  {slides.map((slide, index) => (
-                    <CarouselItem key={index}>
-                      <div className="relative rounded-lg overflow-hidden shadow-xl">
-                        <img
-                          src={slide.image}
-                          alt={slide.title}
-                          className="w-full h-[500px] object-cover object-center"
-                        />
-                        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
-                          <h3 className="text-xl font-bold text-white mb-2">
-                            {slide.title}
-                          </h3>
-                          <p className="text-gray-200 mb-4">
-                            {slide.description}
-                          </p>
-                          <Button variant="secondary" className="bg-white text-brand-navy hover:bg-gray-100">
-                            <Link to={slide.link}>Shop Now</Link>
-                          </Button>
-                        </div>
-                      </div>
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-                <CarouselPrevious className="left-2 bg-white/80 hover:bg-white" />
-                <CarouselNext className="right-2 bg-white/80 hover:bg-white" />
-              </Carousel>
-            </div>
           </div>
-        </div>
+        ))}
+      </div>
+      
+      {/* Navigation arrows */}
+      <button
+        onClick={prevSlide}
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-30 bg-white/20 hover:bg-white/30 rounded-full p-2 text-white transition-all"
+        aria-label="Previous slide"
+      >
+        <ChevronLeft size={24} />
+      </button>
+      
+      <button
+        onClick={nextSlide}
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-30 bg-white/20 hover:bg-white/30 rounded-full p-2 text-white transition-all"
+        aria-label="Next slide"
+      >
+        <ChevronRight size={24} />
+      </button>
+      
+      {/* Slide indicators */}
+      <div className="absolute bottom-8 left-0 right-0 z-30 flex justify-center gap-2">
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentSlide(index)}
+            className={`w-3 h-3 rounded-full transition-all ${
+              currentSlide === index ? "bg-white scale-125" : "bg-white/50"
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
       </div>
     </div>
   );
