@@ -60,7 +60,7 @@ const HeroSection = () => {
                 </Button>
               </div>
             </div>
-            <div className="hidden lg:block relative">
+            <div className="hidden lg:block">
               <Carousel className="w-full max-w-[600px] mx-auto">
                 <CarouselContent>
                   {slides.map((slide, index) => (

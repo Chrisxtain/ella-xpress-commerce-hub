@@ -100,7 +100,7 @@ const Navbar = () => {
               )}
             </Link>
             
-            {/* Mobile menu button */}
+            {/* Mobile menu button - only visible on mobile */}
             <button 
               className="lg:hidden p-2 text-gray-500 hover:text-brand-navy"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -111,7 +111,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile navigation */}
+      {/* Mobile navigation - only visible when menu is open on mobile */}
       <div 
         className={cn(
           "fixed inset-0 z-30 bg-white lg:hidden transition-transform duration-300 transform",
