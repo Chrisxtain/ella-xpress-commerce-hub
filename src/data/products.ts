@@ -1,4 +1,3 @@
-
 import { Product, Category, BlogPost } from './types';
 
 export const categories: Category[] = [
@@ -459,12 +458,12 @@ export const products: Product[] = [
     category: "Travel",
     categorySlug: "travel",
     image: "https://images.unsplash.com/photo-1553531384-411a247ccd73?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y2FycnklMjBvbiUyMGx1Z2dhZ2V8ZW58MHx8MHx8fDA%3D",
-    description: "Ultra-lightweight 22" carry-on with spinner wheels and expandable capacity. Meets most airline cabin requirements.",
+    description: "Ultra-lightweight 22\" carry-on with spinner wheels and expandable capacity. Meets most airline cabin requirements.",
     rating: 4.7,
     reviewCount: 245,
     isFeatured: true,
     isHot: true,
-    features: ["22" x 14" x 9" dimensions", "Lightweight polycarbonate shell", "360° spinner wheels", "TSA-approved lock", "Expandable capacity", "Interior organizers", "Telescoping handle"],
+    features: ["22\" x 14\" x 9\" dimensions", "Lightweight polycarbonate shell", "360° spinner wheels", "TSA-approved lock", "Expandable capacity", "Interior organizers", "Telescoping handle"],
     reviews: [
       {
         id: 1,
