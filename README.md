@@ -1,18 +1,13 @@
-# Welcome to your Lovable project
-
+# Welcome to this Shopify Demo Store
 ## Project info
+A modern, fully responsive Shopify demo storefront built with React, Tailwind CSS, and Shopify Storefront API. This project showcases a custom storefront that integrates seamlessly with Shopify’s backend, offering a sleek and performant e-commerce experience
 
-**URL**: https://lovable.dev/projects/76a62779-ce63-4730-b890-2b143724523e
+**URL**: https://ella-express.netlify.app/
 
 ## How can I edit this code?
 
 There are several ways of editing your application.
 
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/76a62779-ce63-4730-b890-2b143724523e) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
 
 **Use your preferred IDE**
 
@@ -50,7 +45,7 @@ npm run dev
 - Click on "New codespace" to launch a new Codespace environment.
 - Edit files directly within the Codespace and commit and push your changes once you're done.
 
-## What technologies are used for this project?
+## 🚀 Tech Stack used for this project?
 
 This project is built with:
 
@@ -60,14 +55,10 @@ This project is built with:
 - shadcn-ui
 - Tailwind CSS
 
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/76a62779-ce63-4730-b890-2b143724523e) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+## ✨ Features
+Individual product detail pages
+Add-to-cart functionality
+Persistent cart using local storage or context
+Custom responsive layout using Tailwind CSS
+Smooth transitions and clean UX
+Modular and reusable component structure
