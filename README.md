@@ -1,4 +1,4 @@
-# Welcome to this Shopify Demo Store
+# Welcome To This Shopify Demo Store
 ## Project info
 A modern, fully responsive Shopify demo storefront built with React, Tailwind CSS, and Shopify Storefront API. This project showcases a custom storefront that integrates seamlessly with Shopify’s backend, offering a sleek and performant e-commerce experience
 
